@@ -10,9 +10,9 @@ class App extends React.Component {
             id: 7,
             name: '${name}'
         };
-        const api_url = await fetch(`http://localhost:8080/greet`);
-        let result = api_url.json();
-        alert(result.message);
+        const api_url = await fetch(`http://localhost:8080/hello/${name}`);
+        let result = await api_url.text();
+        alert(result);
     };
 
     render() {

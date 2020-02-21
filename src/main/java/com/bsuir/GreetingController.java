@@ -20,4 +20,9 @@ public class GreetingController {
     public Greeting greetingName(@RequestBody Greeting greet) {
         return new Greeting(counter.incrementAndGet(), String.format(template, greet.getContent()));
     }
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/hello/{name}")
+    public String sayHello(@PathVariable String name){
+        return "Hello "+ name;
+    }
 }
