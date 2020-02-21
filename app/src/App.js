@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Form from "./Form";
+class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    gettingGreeting = async (e) => {
+        e.preventDefault();
+        const name = e.target.elements.name.value;
+        let user = {
+            id: 7,
+            name: '${name}'
+        };
+        const api_url = await fetch(`http://localhost:8080/greet`);
+        let result = api_url.json();
+        alert(result.message);
+    };
+
+    render() {
+        return (
+        <div>
+            <Form gettingGreeting={this.gettingGreeting}/>
+        </div>
+        );
+
+    }
+
 }
 
 export default App;
