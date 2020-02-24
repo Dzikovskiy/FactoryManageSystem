@@ -23,6 +23,6 @@ public class GreetingController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/hello/{name}")
     public String sayHello(@PathVariable String name){
-        return "Hello "+ name;
+        return "Ну привет, "+ name;
     }
 }
