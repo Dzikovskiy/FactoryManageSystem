@@ -1,2 +1,2 @@
-# FactoryManageSystem
- University project for factory management
+# React-Spring-test
+ Just testing react and spring 
